@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Station Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+  <script defer src="firebase-init.js"></script>
+  <script defer src="auth.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <h1>Weather Station Dashboard</h1>
+  <button id="logout-button" class="logout-button">Logout</button>
+  <div id="data-section">
+    <div id="dashboard">
+      <!-- Display sensor data here -->
+    </div>
+    <div id="valve-control">
+      <h3>Valve Control</h3>
+      <button id="motor1-toggle-button" class="control-button">Turn Motor Control 1 ON</button>
+      <button id="motor2-toggle-button" class="control-button">Turn Motor Control 2 ON</button>
+      <button id="motor3-toggle-button" class="control-button">Turn Motor Control 3 ON</button>
+      <button id="motor4-toggle-button" class="control-button">Turn Motor Control 4 ON</button>
+      <button id="motor5-toggle-button" class="control-button">Turn Motor Control 5 ON</button>
+    </div>
+    <div id="predicted-data-section">
+      <h3>Predicted Data</h3>
+      <table id="predicted-data-table">
+        <thead>
+          <tr>
+            <th>Record</th>
+            <th>Conventional</th>
+            <th>Organic</th>
+            <th>Semi_Organic</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>micro_nutrients_required_with_manual_checklist_based_on_plant_conditions</td>
+            <td id="conventional_1"></td>
+            <td id="organic_1"></td>
+            <td id="semi_organic_1"></td>
+          </tr>
+          <tr>
+            <td>nutrients_requirement_by_stage_of_crop_with_manual_checklist_based_on_plant</td>
+            <td id="conventional_2"></td>
+            <td id="organic_2"></td>
+            <td id="semi_organic_2"></td>
+          </tr>
+          <tr>
+            <td>probable_disease_control</td>
+            <td id="conventional_3"></td>
+            <td id="organic_3"></td>
+            <td id="semi_organic_3"></td>
+          </tr>
+          <tr>
+            <td>probable_disease_prevention</td>
+            <td id="conventional_4"></td>
+            <td id="organic_4"></td>
+            <td id="semi_organic_4"></td>
+          </tr>
+          <tr>
+            <td>probable_pest_control</td>
+            <td id="conventional_5"></td>
+            <td id="organic_5"></td>
+            <td id="semi_organic_5"></td>
+          </tr>
+          <tr>
+            <td>probable_pest_prevention</td>
+            <td id="conventional_6"></td>
+            <td id="organic_6"></td>
+            <td id="semi_organic_6"></td>
+          </tr>
+          <tr>
+            <td>probable_weed_removal_methods_and_tips_tools</td>
+            <td id="conventional_7"></td>
+            <td id="organic_7"></td>
+            <td id="semi_organic_7"></td>
+          </tr>
+            <tr>
+            <td>predicted_timestamp</td>
+            <td id="conventional_7"></td>
+            <td id="organic_7"></td>
+            <td id="semi_organic_7"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <script>
+    firebase.auth().onAuthStateChanged((user) => {
+      if (!user) {
+        // Redirect to login page if not authenticated
+        window.location.href = 'login.html';
+      }
+    });
+  </script>
+</body>
+</html> 
